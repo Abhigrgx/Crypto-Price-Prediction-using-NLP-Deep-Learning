@@ -1,0 +1,65 @@
+# ── Core ──────────────────────────────────────
+fastapi==0.110.3
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+pydantic-settings==2.2.1
+python-dotenv==1.0.1
+httpx==0.27.0
+
+# ── Database ──────────────────────────────────
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+alembic==1.13.1
+pymongo==4.7.2
+motor==3.4.0
+redis==5.0.4
+
+# ── Data Collection ───────────────────────────
+python-binance==1.0.19
+pycoingecko==3.1.0
+newsapi-python==0.2.7
+praw==7.7.1
+tweepy==4.14.0
+aiohttp==3.9.5
+requests==2.32.2
+
+# ── Data Processing ───────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.0
+scikit-learn==1.4.2
+ta==0.11.0
+
+# ── NLP ───────────────────────────────────────
+transformers==4.41.0
+torch==2.3.0
+tokenizers==0.19.1
+datasets==2.19.1
+nltk==3.8.1
+spacy==3.7.4
+emoji==2.11.1
+langdetect==1.0.9
+sentence-transformers==2.7.0
+
+# ── Deep Learning ─────────────────────────────
+tensorflow==2.18.0
+keras==3.8.0
+optuna==3.6.1
+
+# ── Visualization / Evaluation ────────────────
+matplotlib==3.9.0
+seaborn==0.13.2
+plotly==5.22.0
+shap==0.45.1
+
+# ── Task Queue ────────────────────────────────
+celery==5.4.0
+flower==2.0.1
+
+# ── Utilities ─────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+schedule==1.2.1
+loguru==0.7.2
+tenacity==8.3.0

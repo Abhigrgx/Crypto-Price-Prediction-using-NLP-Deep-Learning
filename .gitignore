@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Environment
+.env
+*.env.local
+
+# ML artefacts
+ml/saved_models/
+ml/data/raw/
+ml/data/processed/
+*.h5
+*.pt
+*.pth
+*.pkl
+*.ckpt
+wandb/
+
+# Logs
+logs/
+*.log
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.override.yml
