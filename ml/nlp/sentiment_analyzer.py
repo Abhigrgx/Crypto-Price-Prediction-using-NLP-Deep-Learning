@@ -67,9 +67,9 @@ class SentimentAnalyzer:
         """Classify a single text string."""
         if not text or not text.strip():
             return SentimentResult(text=text, label="NEUTRAL", score=1.0, numeric=0.0)
-        result = self._pipeline(text)[0]
-        label = result["label"].lower()
-        score = float(result["score"])
+        result = self._pipeline(text)[0]  # type: ignore[index]
+        label = result["label"].lower()  # type: ignore[index]
+        score = float(result["score"])  # type: ignore[index]
         numeric = self.LABEL_MAP.get(label, 0.0) * score
         return SentimentResult(
             text=text,
@@ -87,11 +87,11 @@ class SentimentAnalyzer:
         results: list[Optional[SentimentResult]] = [None] * len(texts)
 
         if valid_texts:
-            raw = self._pipeline(valid_texts)
+            raw = self._pipeline(valid_texts)  # type: ignore[index]
             for list_pos, orig_idx in enumerate(valid_idx):
-                r = raw[list_pos]
-                label = r["label"].lower()
-                score = float(r["score"])
+                r = raw[list_pos]  # type: ignore[index]
+                label = r["label"].lower()  # type: ignore[index]
+                score = float(r["score"])  # type: ignore[index]
                 numeric = self.LABEL_MAP.get(label, 0.0) * score
                 results[orig_idx] = SentimentResult(
                     text=texts[orig_idx],

@@ -136,9 +136,9 @@ def run_pipeline(
 
     # ── 7. Backtest ───────────────────────────────────────────────────────
     if task == "regression":
-        signals = (np.diff(preds_inv) > 0).astype(int)
+        signals = (np.diff(preds_inv) > 0).astype(int)  # type: ignore[possibly-undefined]
         backtester = Backtester()
-        bt_result = backtester.run(y_test_inv[1:], signals)
+        bt_result = backtester.run(y_test_inv[1:], signals)  # type: ignore[possibly-undefined]
         metrics.update(
             {
                 "backtest_total_return": bt_result.total_return,

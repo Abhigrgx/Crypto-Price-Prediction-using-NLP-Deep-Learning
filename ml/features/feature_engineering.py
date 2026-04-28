@@ -105,4 +105,4 @@ class FeatureEngineer:
     ) -> pd.Series:
         """Annualised rolling volatility of close returns."""
         log_ret = np.log(df["close"] / df["close"].shift(1))
-        return log_ret.rolling(window).std() * np.sqrt(365 * 24)
+        return pd.Series(log_ret, index=df.index).rolling(window).std() * np.sqrt(365 * 24)

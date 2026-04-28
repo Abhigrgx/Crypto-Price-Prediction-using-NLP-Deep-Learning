@@ -5,8 +5,20 @@ Adds RSI, MACD, Bollinger Bands, EMA, SMA, ATR, OBV, and Stochastic.
 from __future__ import annotations
 
 import pandas as pd
-import ta
+import ta.trend as _ta_trend  # type: ignore[import-untyped]
+import ta.momentum as _ta_momentum  # type: ignore[import-untyped]
+import ta.volatility as _ta_volatility  # type: ignore[import-untyped]
+import ta.volume as _ta_volume  # type: ignore[import-untyped]
 from loguru import logger
+
+# Alias so existing `ta.xxx` references still work
+class _ta:  # noqa: N801
+    trend = _ta_trend
+    momentum = _ta_momentum
+    volatility = _ta_volatility
+    volume = _ta_volume
+
+ta = _ta()
 
 
 def add_all_indicators(df: pd.DataFrame) -> pd.DataFrame:
@@ -87,7 +99,7 @@ def add_all_indicators(df: pd.DataFrame) -> pd.DataFrame:
 def add_time_features(df: pd.DataFrame) -> pd.DataFrame:
     """Add calendar / cyclical time-based features."""
     df = df.copy()
-    idx = df.index
+    idx = pd.DatetimeIndex(df.index)
     df["hour"] = idx.hour
     df["day_of_week"] = idx.dayofweek
     df["day_of_month"] = idx.day

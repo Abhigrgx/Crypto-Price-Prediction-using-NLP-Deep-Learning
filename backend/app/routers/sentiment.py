@@ -60,7 +60,7 @@ async def get_sentiment(
 
         points = [
             SentimentPoint(
-                timestamp=idx,
+                timestamp=idx if isinstance(idx, datetime) else datetime.fromisoformat(str(idx)),
                 sentiment_score=float(row.get("sentiment_score", 0)),
                 sentiment_positive=int(row.get("sentiment_positive", 0)),
                 sentiment_negative=int(row.get("sentiment_negative", 0)),

@@ -125,8 +125,8 @@ class TwitterCollector:
             tweet_fields=["created_at", "public_metrics", "lang"],
         )
         tweets = []
-        if response.data:
-            for tw in response.data:
+        if response.data:  # type: ignore[union-attr]
+            for tw in response.data:  # type: ignore[union-attr]
                 metrics = tw.public_metrics or {}
                 tweets.append(
                     {

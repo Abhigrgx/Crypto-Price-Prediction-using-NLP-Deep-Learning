@@ -25,7 +25,7 @@ celery_app.conf.update(
         # Refresh OHLCV every hour
         "collect-market-data": {
             "task": "app.tasks.collect_market_data",
-            "schedule": crontab(minute=5),  # xx:05 every hour
+            "schedule": crontab(minute="5"),  # xx:05 every hour
         },
         # Run sentiment pipeline every 30 minutes
         "update-sentiment": {
@@ -35,7 +35,7 @@ celery_app.conf.update(
         # Generate predictions every hour
         "run-predictions": {
             "task": "app.tasks.run_predictions",
-            "schedule": crontab(minute=15),
+            "schedule": crontab(minute="15"),
         },
     },
 )

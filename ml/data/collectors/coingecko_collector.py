@@ -31,7 +31,7 @@ class CoinGeckoCollector:
 
     def __init__(self, api_key: Optional[str] = None) -> None:
         key = api_key or os.getenv("COINGECKO_API_KEY", "")
-        self.cg = CoinGeckoAPI(api_key=key if key else None)
+        self.cg = CoinGeckoAPI(api_key=key) if key else CoinGeckoAPI()  # type: ignore[call-arg]
         logger.info("CoinGeckoCollector initialised.")
 
     def _resolve_id(self, symbol: str) -> str:
